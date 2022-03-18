@@ -7,31 +7,36 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<header>
-		<div class="header" style="margin-top: 10px;">
+		<div class="header" >
 			<div>
 				<div class="imgHd">
 					<img src="img/avt.jpg">
 				</div>
-				<nav>
-					<div class="MenuNav">
-						<a class="" href="#"><i class="fas fa-home"></i> Trang chủ</a>
-						<a class="" href="#"><i class="fab fa-unity"></i> Unity</a>
-						<span class="dropdownLt">
-							<a class="drop" href="#">Lập Trình</a>
-								<div class="dropdown-contentLt">
-									<a class="add" href="#" style="border-radius: 0 15px 0px 0px;">C</a>
-									<a class="add" href="#">C#</a>
-									<a class="add" href="#">Java</a>
-									<a class="add" href="#">Web</a>
-									<a class="add" href="#" style="border-radius: 0 0 15px 15px;">Python</a>
-								</div>
-						</span>
-						<a class="" href="#lienhe">Liên hệ</a>
+				<nav class="MenuNav">
+					<div class="container-fluid">
+					  <ul class="nav navbar-nav">
+						<li class="navBar"><a class="" href="#"><i class="fas fa-home"></i> Trang chủ</a></li>
+						<li class="navBar"><a class="" href="#"><i class="fab fa-unity"></i> Unity</a></li>
+						<li class="navBar" id="clickDr"><a class="dropdown-toggle" onclick="myFunction()" data-toggle="dropdown" href="#">Lập Trình <i id="xoay" class='fas fa-angle-double-down'></i></a>
+						  <ul class="dropdown-menu">
+							<li><a href="#">Lập Trình C#</a></li>
+							<li><a href="#">Lập Trình Java</a></li>
+							<li><a href="#">Lập Trình Game Unity</a></li>
+							<li><a href="#">Lập Trình C/C++</a></li>
+							<li><a href="#">Lập Trình Python</a></li>
+							<li><a href="#">Lập Trình Android</a></li>
+						  </ul>
+						</li>
+						<li class="navBar"><a href="#lienhe">Liên Hệ</a></li>
+					  </ul>
 					</div>
-				</nav>
+				  </nav>
 
 				<div class="MenuIcon">
 					<input type="checkbox" id="active">
@@ -52,6 +57,70 @@
 	</header>
 	<!-- MenuIcon -->
 	<style>
+		.MenuNav{
+			box-sizing: border-box;
+			float: right;
+			width: 60%;
+			margin-top: 15px;
+			/* text-align: left; */
+			/* line-height: 80px; */
+			min-width: 520px;
+		}
+		.navBar>a{
+			transition: 1s;
+			color: white;
+			width: 120px;
+			text-align: center;
+			font-weight: bold;
+			/* font-size: 15px; */
+			text-decoration: none;
+			/* padding: 2%; */
+		}
+		.navBar>a:hover{
+			border-radius: 30px;
+			transition: 1s;
+			color: rgb(0, 0, 0);
+			background-color: #ffffff;
+			text-decoration-style: solid;
+		}
+		.navBar>a:focus{
+			border-radius: 30px;
+			transition: 1s;
+			color: rgb(0, 0, 0);
+			background-color: #ffffff;
+			text-decoration-style: solid;
+		}
+		
+		.dropdown-menu{
+			bottom: 0;
+			height: 300px;
+			overflow: auto;
+			background-color: rgba(116, 116, 116, 0.501);
+		}
+		.dropdown-menu::-webkit-scrollbar {
+			border-radius: 30px;
+			width: 5px;
+			height: 1px!important;
+			background-color: #3c3c3c;
+		}
+		.dropdown-menu::-webkit-scrollbar-thumb {
+			background-color: #00ff48;
+			border-radius: 30px;
+			border-right: 2px solid rgb(255, 0, 0);
+		}
+		.dropdown-menu>li{
+			padding: 5px;
+		}
+		.dropdown-menu>li>a{
+			padding: 10px;
+			color: white;
+		}
+		
+		.dropdown-menu>li>a:hover{
+			transition: 1s;
+			color: black;
+			background-color: rgb(255, 255, 255);
+		}
 		.MenuIcon{
 			display: none;
 		}
@@ -79,7 +148,6 @@
 		.wrapper{
 			min-width: 400px;
 			position: fixed;
-			top: 0;
 			left: 0;
 			bottom: 0;
 			height: 100%;
@@ -138,6 +206,7 @@
 			left: 50%; */
 			/* transform: translate(-50%, -50%); */
 			list-style: none;
+			margin-top: 100px;
 			text-align: center;
 		}
 		.wrapper ul li{
@@ -145,6 +214,7 @@
 		}
 		.wrapper ul li a{
 			color: none;
+			
 			text-decoration: none;
 			font-size: 25px;
 			font-weight: 500;
@@ -300,32 +370,12 @@
 			width: 10%;
 		}
 		.imgHd>img{
-			margin-top: 4px;
+			/* margin-top: 4px; */
 			margin-left: 5px;
 			width: 50px;
 			border-radius: 20px;
 		}
-		.MenuNav{
-			box-sizing: border-box;
-			float: right;
-			width: 60%;
-			text-align: left;
-			line-height: 60px;
-		}
-		.MenuNav>a{
-			color: white;
-			font-weight: bold;
-			font-size: 17px;
-			text-decoration: none;
-			padding: 2%;
-		}
-		.MenuNav>a:hover{
-			transition: 1s;
-			border-radius: 30px;
-			color: rgb(0, 0, 0);
-			background-color: #ffffff;
-			text-decoration-style: solid;
-		}
+		
 		.menuLienHe>a{
 			padding: 10px;
 			line-height: 60px;
@@ -336,7 +386,35 @@
 			border-radius: 30px;
 			background-color: #00ff3c;
 		}
+		.rotate{
+			transform: rotateZ(0.5turn);
+		}
+		.rotate1{
+			transform: rotateZ(0);
+		}
 	</style>
-	
+	<script>
+		
+		
+		
+</script>
+<script>
+	// document.getElementById("clickDrb").onclick = function() {myFunction()};
+	function myFunction() {
+		document.getElementById("xoay").style.transform = "rotate(0deg)";
+	}
+	document.addEventListener("click", (evt) => {
+	  const flyoutEl = document.getElementById("clickDr");
+	  let targetEl = evt.target;   
+	  do {
+		if(targetEl == flyoutEl) {
+		  document.getElementById("xoay").style.transform = "rotate(180deg)";
+		  return;
+		}
+		targetEl = targetEl.parentNode;
+	  } while (targetEl);   
+	  	document.getElementById("xoay").style.transform = "rotate(0deg)";
+	});
+  </script>
 </body>
 </html>
